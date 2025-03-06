@@ -1,1 +1,2 @@
-# Ai-Generated-Game
+I let ai do whatever it wants to do.
+LETS SEE WHAT HAPPENS...
