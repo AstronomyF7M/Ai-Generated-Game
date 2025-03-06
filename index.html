@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Game</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #game { width: 300px; height: 300px; border: 1px solid #000; position: relative; }
+        .player { width: 30px; height: 30px; background-color: red; position: absolute; }
+    </style>
+</head>
+<body>
+    <h1>Catch the Box Game</h1>
+    <div id="game"></div>
+    <p>Score: <span id="score">0</span></p>
+    <script>
+        const gameArea = document.getElementById('game');
+        const scoreDisplay = document.getElementById('score');
+        let score = 0;
+        let player;
+
+        function createPlayer() {
+            player = document.createElement('div');
+            player.className = 'player';
+            gameArea.appendChild(player);
+            movePlayer();
+        }
+
+        function movePlayer() {
+            const x = Math.random() * (gameArea.clientWidth - 30);
+            const y = Math.random() * (gameArea.clientHeight - 30);
+            player.style.left = x + 'px';
+            player.style.top = y + 'px';
+        }
+
+        function updateScore() {
+            score++;
+            scoreDisplay.textContent = score;
+            movePlayer();
+        }
+
+        gameArea.addEventListener('click', updateScore);
+        createPlayer();
+    </script>
+</body>
+</html>
